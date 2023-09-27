@@ -2,18 +2,27 @@
 
     <div class="mb">
         <div class="box_title">TÀI KHOẢN</div>
+        <?php if (!$_SESSION) { ?>
         <div class="box_content form_account">
-            <form action="#" method="POST"></form>
+            <form action="index.php?act=dangnhap" method="POST">
             <h4>Tên đăng nhập</h4><br>
             <input type="text" name="user" id="">
             <h4>Mật khẩu</h4><br>
             <input type="password" name="pass" id=""><br>
             <input type="checkbox" name="" id="">Ghi nhớ tài khoản?
-            <br><input type="submit" value="Đăng nhập">
-            <li class="form_li"><a href="#">Quên mật khẩu</a></li>
-            <li class="form_li"><a href="#">Đăng kí thành viên</a></li>
-
+            <br><input type="submit" value="Đăng nhập" name="dangnhap">
+            <br>
+            <?php if (isset($loginMess)&&$loginMess != '') {
+                echo $loginMess;
+            } ?>
+            </form>
+            <li class="form_li"><a href="index.php?act=quenmk">Quên mật khẩu</a></li>
+            <li class="form_li"><a href="index.php?act=dangky">Đăng kí thành viên</a></li>
         </div>
+        <?php } else { ?>
+            <p>Hello <?=$_SESSION['user']?></p>
+            <button><a href="index.php?act=dangxuat">Đăng xuất</a></button>
+        <?php } ?>
     </div>
     <div class="mb">
         <div class="box_title">DANH MỤC</div>
@@ -55,26 +64,6 @@
                 </div>';
                     }
                     ?>
-            <!--                <div class="selling_products" style="width:100%;">-->
-            <!--                  <img src="./img/clockforgirl.jpg" alt="anh">-->
-            <!--                  <a href="">Đồng hồ đeo tay nữ</a>-->
-            <!--                </div>-->
-            <!--                <div class="selling_products" style="width:100%;">-->
-            <!--                  <img src="./img/clockforgirl.jpg" alt="anh">-->
-            <!--                  <a href="">Đồng hồ đeo tay nữ</a>-->
-            <!--                </div>-->
-            <!--                <div class="selling_products" style="width:100%;">-->
-            <!--                  <img src="./img/clockforgirl.jpg" alt="anh">-->
-            <!--                  <a href="">Đồng hồ đeo tay nữ</a>-->
-            <!--                </div>-->
-            <!--                <div class="selling_products" style="width:100%;">-->
-            <!--                  <img src="./img/clockforgirl.jpg" alt="anh">-->
-            <!--                  <a href="">Đồng hồ đeo tay nữ</a>-->
-            <!--                </div>-->
-            <!--                <div class="selling_products" style="width:100%;">-->
-            <!--                  <img src="./img/clockforgirl.jpg" alt="anh">-->
-            <!--                  <a href="">Đồng hồ đeo tay nữ</a>-->
-            <!--                </div>-->
         </div>
     </div>
 </div>
